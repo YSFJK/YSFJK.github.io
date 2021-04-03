@@ -11,6 +11,9 @@ a:link, a:visited, a:hover, a:active {
     color: white;
 }
 
+.main_page{
+    opacity: 0;
+}
 .full{
     position:relative;
     width:100%;
@@ -70,6 +73,10 @@ a:link, a:visited, a:hover, a:active {
 }
 .fadeout{
     animation: fadeout 0.5s ease;
+    animation-fill-mode:forwards;
+}
+.fadein{
+    animation: fadein 0.5s ease;
     animation-fill-mode:forwards;
 }
 
