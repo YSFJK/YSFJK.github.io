@@ -27,11 +27,11 @@ a:link, a:visited, a:hover, a:active {
 }
 .logo1{
     display: inline-block;
-    width: 5.2ch;
+    width: 3em;
     font: 200%  serif,Consolas, Monaco, monospace;
     overflow: hidden;
     white-space: nowrap;
-    font-size: 10vw;
+    font-size: 12vw;
     border-right: 2px solid transparent;
     animation: typing 2s steps(5), caret 0.4s steps(1) infinite;
 }
