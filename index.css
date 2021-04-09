@@ -15,7 +15,6 @@ a:link, a:visited, a:hover, a:active {
     position:relative;
     width:100%;
     min-height:100vh;
-    background:url(all.jpg) center/cover;
 }
 .fadecenter{
     width: 100%;
