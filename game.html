@@ -44,10 +44,10 @@
             for(let i=0;i<5;i++){
                 var hoge=document.getElementById('x'+(i+1));
                 if(nowx[i]==1){
-                    hoge.setAttribute('style','color:green');
+                    hoge.setAttribute('style','color:green;text-align:center');
                 }
                 else{
-                    hoge.setAttribute('style','color:black');
+                    hoge.setAttribute('style','color:black;text-align:center');
                 }
             }
             let bool=true;
@@ -58,11 +58,11 @@
                 }
                 var hoge=document.getElementById('q'+(i+1));
                 if(!bol){
-                    hoge.setAttribute('style','color:black');
+                    hoge.setAttribute('style','color:black;text-align:center');
                     bool=false;
                 }
                 else{
-                    hoge.setAttribute('style','color:green');
+                    hoge.setAttribute('style','color:green;text-align:center');
                 }
             }
             if(bool){
@@ -84,27 +84,36 @@
     <body>
         <div id="questions">
             <div>
-                <p id="q1"></p>
+                <p id="q1" style="text-align:center"></p>
             </div>
+            <br>
             <div>
-                <p  id="q2"></p>
+                <p  id="q2" style="text-align:center"></p>
             </div>
+            <br>
             <div>
-                <p  id="q3"></p>
+                <p  id="q3" style="text-align:center"></p>
             </div>
+            <br>
             <div>
-                <p  id="q4"></p>
+                <p  id="q4" style="text-align:center"></p>
             </div>
+            <br>
             <div>
-                <p  id="q5"></p>
+                <p  id="q5" style="text-align:center"></p>
             </div>
         </div>
+        <br>
         <div id="answer">
-            <p id="x1" onclick="func(0)">x<sub>1</sub></p>
-            <p id="x2" onclick="func(1)">x<sub>2</sub></p>
-            <p id="x3" onclick="func(2)">x<sub>3</sub></p>
-            <p id="x4" onclick="func(3)">x<sub>4</sub></p>
-            <p id="x5" onclick="func(4)">x<sub>5</sub></p>
+            <p id="x1" onclick="func(0)"style="text-align:center">x<sub>1</sub></p>
+            <br>
+            <p id="x2" onclick="func(1)"style="text-align:center">x<sub>2</sub></p>
+            <br>
+            <p id="x3" onclick="func(2)"style="text-align:center">x<sub>3</sub></p>
+            <br>
+            <p id="x4" onclick="func(3)"style="text-align:center">x<sub>4</sub></p>
+            <br>
+            <p id="x5" onclick="func(4)"style="text-align:center">x<sub>5</sub></p>
         </div>
         <div id="hoge">
             <p id="clear"> </p>
