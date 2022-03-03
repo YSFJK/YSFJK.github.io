@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>5-SAT</title>
+        <link rel="stylesheet" href="index.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+        <script>
+        function getRandomint(max){
+            return Math.floor(Math.random()*max);
+        }
+        let x=[getRandomint(2),getRandomint(2),getRandomint(2),getRandomint(2),getRandomint(2)];
+        let nowx=[0,0,0,0,0];
+        let qs=[getRandomint(2),getRandomint(2),getRandomint(2),getRandomint(2),getRandomint(2)];
+        function createq(num){
+            while(true){
+                let hoge=false;
+                for(let i=0;i<5;i++){
+                    if(qs[i]==x[i]){
+                        hoge=true;
+                        break;
+                    }
+                }
+                if(hoge){
+                    let str='';
+                    for(let i=0;i<5;i++){
+                        if(qs[i]==0)str+='￢';
+                        str+='x<sub>'+i+'</sub>∨';
+                    }
+                    str=str.slice(0,str.length-1);
+                    let dv='q'+num;
+                    document.getElementById(dv).innerHTML=str;
+                break;
+               }
+            }
+        }
+        function func(num){
+            if(nowx[num]==0)nowx[num]=1;
+            else nowx[num]=0;
+            calc();
+        }
+        function calc(){
+            for(let i=0;i<5;i++){
+                var hoge=document.getElementById('x'+(i+1));
+                if(nowx[i]==1){
+                    hoge.setAttribute('style','color:green');
+                }
+                else{
+                    hoge.setAttribute('style','color:black');
+                }
+            }
+            let bool=true;
+            for(let i=0;i<5;i++){
+                let bol=false;
+                for(let j=0;j<5;j++){
+                    if(qs[i]==nowx[i])bol=true;
+                }
+                var hoge=document.getElementById('q'+(i+1));
+                if(!bol){
+                    hoge.setAttribute('style','color:black');
+                    bool=false;
+                }
+                else{
+                    hoge.setAttribute('style','color:green');
+                }
+            }
+            if(bool){
+                var hoge=document.getElementById('clear');
+                hoge.innerHTML="CLEAR";
+            }
+
+        }
+        window.onload=function(){
+            createq(1);
+            createq(2);
+            createq(3);
+            createq(4);
+            createq(5);
+            calc();
+        }
+        </script>
+    </head>
+    <body>
+        <div id="questions">
+            <div>
+                <p id="q1"></p>
+            </div>
+            <div>
+                <p  id="q2"></p>
+            </div>
+            <div>
+                <p  id="q3"></p>
+            </div>
+            <div>
+                <p  id="q4"></p>
+            </div>
+            <div>
+                <p  id="q5"></p>
+            </div>
+        </div>
+        <div id="answer">
+            <p id="x1" onclick="func(0)">x<sub>1</sub></p>
+            <p id="x2" onclick="func(1)">x<sub>2</sub></p>
+            <p id="x3" onclick="func(2)">x<sub>3</sub></p>
+            <p id="x4" onclick="func(3)">x<sub>4</sub></p>
+            <p id="x5" onclick="func(4)">x<sub>5</sub></p>
+        </div>
+        <div id="hoge">
+            <p id="clear"> </p>
+        </div>
+    </body>
+</html>
