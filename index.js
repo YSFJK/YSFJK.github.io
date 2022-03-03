@@ -21,3 +21,9 @@ $(document).on('click','.achievement', function() {
 		window.location.href = "ahievement.html";
 	},1000);
 });
+$(document).on('click','.game', function() {
+	$('.main_page').addClass('fadeout');
+	setTimeout(function(){
+		window.location.href = "game.html";
+	},1000);
+});
