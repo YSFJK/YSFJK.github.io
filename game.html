@@ -12,12 +12,13 @@
         }
         let x=[getRandomint(2),getRandomint(2),getRandomint(2),getRandomint(2),getRandomint(2)];
         let nowx=[0,0,0,0,0];
-        let qs=[getRandomint(2),getRandomint(2),getRandomint(2),getRandomint(2),getRandomint(2)];
+        let qs=[[],[],[],[],[],[],[],[],[]];
         function createq(num){
             while(true){
+                let q=[getRandomint(2),getRandomint(2),getRandomint(2),getRandomint(2),getRandomint(2)];
                 let hoge=false;
                 for(let i=0;i<5;i++){
-                    if(qs[i]==x[i]){
+                    if(q[i]==x[i]){
                         hoge=true;
                         break;
                     }
@@ -25,9 +26,10 @@
                 if(hoge){
                     let str='';
                     for(let i=0;i<5;i++){
-                        if(qs[i]==0)str+='￢';
+                        if(q[i]==0)str+='￢';
                         str+='x<sub>'+i+'</sub>∨';
                     }
+                    qs[num]=q;
                     str=str.slice(0,str.length-1);
                     let dv='q'+num;
                     document.getElementById(dv).innerHTML=str;
@@ -47,18 +49,18 @@
                     hoge.setAttribute('style','color:green;text-align:center');
                 }
                 else{
-                    hoge.setAttribute('style','color:black;text-align:center');
+                    hoge.setAttribute('style','color:red;text-align:center');
                 }
             }
             let bool=true;
-            for(let i=0;i<5;i++){
+            for(let i=0;i<9;i++){
                 let bol=false;
                 for(let j=0;j<5;j++){
-                    if(qs[i]==nowx[i])bol=true;
+                    if(qs[i+1][j]==nowx[j])bol=true;
                 }
                 var hoge=document.getElementById('q'+(i+1));
                 if(!bol){
-                    hoge.setAttribute('style','color:black;text-align:center');
+                    hoge.setAttribute('style','color:red;text-align:center');
                     bool=false;
                 }
                 else{
@@ -77,6 +79,11 @@
             createq(3);
             createq(4);
             createq(5);
+            createq(6);
+            createq(7);
+            createq(8);
+            createq(9);
+            console.log(qs);
             calc();
         }
         </script>
@@ -101,6 +108,22 @@
             <br>
             <div>
                 <p  id="q5" style="text-align:center"></p>
+            </div>
+            <br>
+            <div>
+                <p  id="q6" style="text-align:center"></p>
+            </div>
+            <br>
+            <div>
+                <p  id="q7" style="text-align:center"></p>
+            </div>
+            <br>
+            <div>
+                <p  id="q8" style="text-align:center"></p>
+            </div>
+            <br>
+            <div>
+                <p  id="q9" style="text-align:center"></p>
             </div>
         </div>
         <br>
